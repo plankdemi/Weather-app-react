@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import HeaderMain from "./Components/Header/headerMain";
+import Weather from "./Components/Main/Weather/weather";
+import Maps from "./Components/Main/Map/map";
+import { useContext } from "react";
+import { markersContext } from "./Context/context";
 
 function App() {
+  const { coordinates } = useContext(markersContext);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeaderMain></HeaderMain>
+      <div className="flex">
+        {coordinates.length > 0 &&
+          coordinates.map((coordinate) => (
+            <Weather marker={coordinate}></Weather>
+          ))}
+        <Maps></Maps>
+      </div>
     </div>
   );
 }
