@@ -1,5 +1,5 @@
 import { whichDataToShowContext } from "../../Context/context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { DatePicker } from "@mui/x-date-pickers";
@@ -43,7 +43,7 @@ export default function HeaderMain() {
       [data]: !prevShowWeather[data],
     }));
   }
-  const today = new Date();
+  
   return (
     <div className="flex justify-between">
       <ul className="flex">

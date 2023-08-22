@@ -2,15 +2,11 @@
 
 import { whichDataToShowContext } from "../../../Context/context";
 import { useContext, useEffect, useState } from "react";
-import { dateContext } from "../../../Context/context";
-
 
 export default function ShowWeather(props: any) {
   const day = props.data.forecast.forecastday[0].hour;
   const { showWeather } = useContext(whichDataToShowContext);
   const [visibleIndex, setVisibleIndex] = useState(0);
-  const { dateSelection } = useContext(dateContext);
-
 
   useEffect(() => {
     const interval = setInterval(() => {
